@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.5.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'eclipse'
     id 'java'
 }
 
@@ -14,8 +15,15 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2database:h2')
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation('org.springframework.session:spring-session-jdbc')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.security:spring-security-test')
 }
 
 test {
